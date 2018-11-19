@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter your\nemail, password\nto log in."
+        android:text="@string/login_main_title"
         android:textSize="35dp"
         android:textStyle="bold"
         android:background="#FFDEE9"
@@ -24,7 +24,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Email"/>
+        android:hint="@string/login_main_hint_email"/>
 
     <EditText
 
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Password"/>
+        android:hint="@string/login_main_hint_password"/>
 
     <Button
         android:id="@+id/loginButton"
