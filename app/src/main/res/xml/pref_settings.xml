@@ -7,7 +7,7 @@
         android:title="도혜지">
     </Preference>
 
-    <PreferenceCategory android:title="설정" >
+    <PreferenceCategory android:title="@string/setting_title" >
 
         <ListPreference
             android:defaultValue="30"
@@ -16,7 +16,7 @@
             android:key="userNumberOpen"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
-            android:title="보여줄 사용자 수 설정" />
+            android:title="@string/setting_sub_title" />
 
     </PreferenceCategory>
 

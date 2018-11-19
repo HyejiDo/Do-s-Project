@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity{
                             startActivity(intent);
                         }
                     }else{
-                        Toast.makeText(LoginActivity.this, "로그인 정보를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, R.string.login_main_toast_message, Toast.LENGTH_SHORT).show();
                     }
                 }
             }
