@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter your\nemail, password\nto log in."
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:background="#FFDEE9"
+        android:paddingTop="60dp"
+        android:paddingBottom="40dp"
+        android:paddingLeft="20dp"
+        android:layout_margin="20dp"
+        />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Email"/>
+
+    <EditText
+
+        android:id="@+id/passwdEditText"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Password"/>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_effect" />
+
+</LinearLayout>
