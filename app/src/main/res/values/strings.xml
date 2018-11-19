@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Do\'s List</string>
+    <string name="login_main_title">Enter your\nemail, password\nto log in.</string>
+    <string name="login_main_hint_email">Email</string>
+    <string name="login_main_hint_password">Password</string>
+    <string name="login_main_toast_message">로그인 정보를 확인해주세요.</string>
+
+    <string name="setting_title">설정</string>
+    <string name="setting_sub_title">보여줄 사용자 수 설정</string>
 </resources>
