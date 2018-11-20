@@ -1,4 +1,4 @@
-package com.example.hjdo.doslist;
+package com.example.hjdo.doslist.profile;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -6,11 +6,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,11 +16,16 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import com.example.hjdo.doslist.UserListAdapter.RecyclerViewClickListener;
+
+import com.example.hjdo.doslist.R;
+import com.example.hjdo.doslist.profiledetail.UserDetailActivity;
+import com.example.hjdo.doslist.data.UserItem;
+import com.example.hjdo.doslist.data.UserItemDetail;
+import com.example.hjdo.doslist.profile.UserListAdapter.RecyclerViewClickListener;
+import com.example.hjdo.doslist.setting.SettingsActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

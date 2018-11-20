@@ -1,4 +1,4 @@
-package com.example.hjdo.doslist;
+package com.example.hjdo.doslist.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.hjdo.doslist.R;
+import com.example.hjdo.doslist.profile.UserListActivity;
 
 public class LoginActivity extends AppCompatActivity{
 

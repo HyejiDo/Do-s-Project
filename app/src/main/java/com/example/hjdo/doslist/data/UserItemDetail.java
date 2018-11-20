@@ -1,4 +1,4 @@
-package com.example.hjdo.doslist;
+package com.example.hjdo.doslist.data;
 
 
 import java.io.Serializable;

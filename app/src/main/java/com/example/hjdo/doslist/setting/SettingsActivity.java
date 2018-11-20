@@ -1,8 +1,10 @@
-package com.example.hjdo.doslist;
+package com.example.hjdo.doslist.setting;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+
+import com.example.hjdo.doslist.R;
 
 public class SettingsActivity extends PreferenceActivity {
 
