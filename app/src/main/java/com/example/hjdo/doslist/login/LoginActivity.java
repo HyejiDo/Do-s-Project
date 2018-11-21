@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity{
         setTheme(R.style.AppTheme);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_main);
 
         emailText = (EditText) findViewById(R.id.emailEditText);
         passwdText = (EditText) findViewById(R.id.passwdEditText);

@@ -30,7 +30,7 @@ public class UserDetailActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_userdetail);
+        setContentView(R.layout.activity_profile_list_detail);
 
         Intent intent = getIntent();
         UserItemDetail userItemDetail = (UserItemDetail) intent.getSerializableExtra("userItemDetail");

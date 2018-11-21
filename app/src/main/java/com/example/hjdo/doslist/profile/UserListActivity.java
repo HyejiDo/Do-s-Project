@@ -59,7 +59,7 @@ public class UserListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_userlist);
+        setContentView(R.layout.activity_profile_list);
 
         //TODO setting에서 보여질 아이템수 변경
         PreferenceManager.setDefaultValues(this, R.xml.pref_settings, false);

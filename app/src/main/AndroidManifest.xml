@@ -23,14 +23,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".profile.UserListActivity"
+        <activity android:name=".profile.ProfileListActivity"
             android:theme="@style/AppSettingTheme">
         </activity>
 
         <activity android:name=".setting.SettingsActivity">
         </activity>
 
-        <activity android:name=".profiledetail.UserDetailActivity">
+        <activity android:name=".profiledetail.ProfileListDetailActivity">
         </activity>
 
     </application>

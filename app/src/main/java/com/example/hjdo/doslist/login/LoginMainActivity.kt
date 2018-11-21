@@ -7,8 +7,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
 import com.example.hjdo.doslist.R
-import com.example.hjdo.doslist.profile.UserListActivity
-import kotlinx.android.synthetic.main.activity_login.*
+import com.example.hjdo.doslist.profile.ProfileListActivity
+import kotlinx.android.synthetic.main.activity_login_main.*
 
 class LoginMainActivity: AppCompatActivity() {
 
@@ -18,20 +18,23 @@ class LoginMainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_login_main)
 
         passwdEditText.addTextChangedListener(textWatcher)
         loginButton.isEnabled = false
         loginButton.setOnClickListener {
             checkUser()
         }
+
+        emailEditText.setText("hjdo@konai.com")
+        passwdEditText.setText("1234")
     }
 
     private fun checkUser(){
         if (loginButton.isEnabled) {
             if (emailEditText.text.toString() == id) {
                 if (passwdEditText.text.toString() == pw) {
-                    val intent = Intent(applicationContext, UserListActivity::class.java)
+                    val intent = Intent(applicationContext, ProfileListActivity::class.java)
                     startActivity(intent)
                 }
             } else {

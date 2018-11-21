@@ -60,7 +60,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
     // TODO App Bar - change view type(list/grid)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(isLinear ? R.layout.user_item_row_layout_list : R.layout.user_item_row_layout_grid, null);
+        View v = LayoutInflater.from(parent.getContext()).inflate(isLinear ? R.layout.profile_item_row_layout_list : R.layout.profile_item_row_layout_grid, null);
         ViewHolder vh = new ViewHolder(v, mListener);
         return vh;
     }
