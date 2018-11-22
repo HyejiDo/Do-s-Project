@@ -3,7 +3,6 @@ package com.example.hjdo.doslist.profile
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
@@ -15,15 +14,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import com.example.hjdo.doslist.R
 import com.example.hjdo.doslist.data.UserItem
 import com.example.hjdo.doslist.data.UserItemDetail
-import com.example.hjdo.doslist.profiledetail.UserDetailActivity
+import com.example.hjdo.doslist.profiledetail.ProfileListDetailActivity
 import com.example.hjdo.doslist.setting.SettingsActivity
 import kotlinx.android.synthetic.main.activity_profile_list.*
-import java.net.MalformedURLException
-import java.util.ArrayList
 
 class ProfileListActivity : AppCompatActivity(), ProfileListContract.View {
 
@@ -32,7 +28,7 @@ class ProfileListActivity : AppCompatActivity(), ProfileListContract.View {
     private lateinit var dialog: ProgressDialog
 
     private var userList: List<UserItem> ? = null
-    //private var listener: ProfileListAdapter.RecyclerViewClickListener? = null
+    private lateinit var listener: ProfileListAdapter.OnItemClickListener
     private var isLinear = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,15 +53,13 @@ class ProfileListActivity : AppCompatActivity(), ProfileListContract.View {
         recycler_view.setHasFixedSize(true)
         recycler_view.layoutManager = LinearLayoutManager(this)
 
-//        listener = object : ProfileListAdapter.RecyclerViewClickListener {
-//            val loginId = userList!![position].login
-//            profileListPresenter.getUserDetailData(userList!![position].login)
-//        }
 
-//        { view, position ->
-//            val loginId = userList!![position].login
-//            profileListPresenter.getUserDetailData(loginId)
-//        }
+        listener = object : ProfileListAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                val loginId = userList!![position].login
+                profileListPresenter.getUserDetailData(loginId)
+            }
+        }
     }
 
     override fun onResume() {
@@ -87,14 +81,14 @@ class ProfileListActivity : AppCompatActivity(), ProfileListContract.View {
     }
 
     override fun showDetailActivity(userItemDetail: UserItemDetail) {
-        val intent = Intent(applicationContext, UserDetailActivity::class.java)
+        val intent = Intent(applicationContext, ProfileListDetailActivity::class.java)
         intent.putExtra("userItemDetail", userItemDetail)
         startActivity(intent)
     }
 
     override fun setUserList(userList:List<UserItem>){
         this.userList = userList
-        profileListAdapter = ProfileListAdapter(this, userList, isLinear)
+        profileListAdapter = ProfileListAdapter(this, userList, listener, isLinear)
         recycler_view.adapter = profileListAdapter
         showLoadingDialog(false)
     }
@@ -118,7 +112,7 @@ class ProfileListActivity : AppCompatActivity(), ProfileListContract.View {
                 isLinear = !isLinear
                 supportInvalidateOptionsMenu()
                 recycler_view.layoutManager = if (isLinear) LinearLayoutManager(this) else GridLayoutManager(this, 2)
-                profileListAdapter = ProfileListAdapter(this, userList, isLinear)
+                profileListAdapter = ProfileListAdapter(this, userList, listener, isLinear)
                 recycler_view.adapter = profileListAdapter
             }
         }

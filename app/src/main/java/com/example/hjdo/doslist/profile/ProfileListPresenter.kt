@@ -119,12 +119,11 @@ class ProfileListPresenter(private val profileView: ProfileListContract.View)
 
                 httpURLConnection.requestMethod = "GET"
                 val reader = BufferedReader(InputStreamReader(httpURLConnection.inputStream))
-                var line: String
+                var line: String?
                 val response = StringBuilder()
-                line = reader.readLine()
-                while ((line) != null) {
+                while (true) {
+                    line = reader.readLine() ?: break
                     response.append(line)
-                    line = reader.readLine()
                 }
                 reader.close()
 
