@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.AsyncTask
 import android.preference.PreferenceManager
+import com.example.hjdo.doslist.Constants
 import com.example.hjdo.doslist.data.UserItem
 import com.example.hjdo.doslist.data.UserItemDetail
 import com.example.hjdo.doslist.profiledetail.UserDetailActivity
@@ -22,7 +23,6 @@ import java.util.ArrayList
 class ProfileListPresenter(private val profileView: ProfileListContract.View)
     : ProfileListContract.Presenter {
 
-    private var URL_STRING = "https://api.github.com/users"
     internal var value: Int = 0
 
     /**************************************************
@@ -38,7 +38,7 @@ class ProfileListPresenter(private val profileView: ProfileListContract.View)
         var networkTask: NetworkTask? = null
 
         try {
-            networkTask = NetworkTask(URL(URL_STRING + "?per_page=" + getSettingListCount()), null)
+            networkTask = NetworkTask(URL(Constants.URL_STRING + "?per_page=" + getSettingListCount()), null)
         } catch (e: MalformedURLException) {
             e.printStackTrace()
         }
@@ -59,7 +59,7 @@ class ProfileListPresenter(private val profileView: ProfileListContract.View)
             try {
                 httpURLConnection = url.openConnection() as HttpURLConnection
 
-                httpURLConnection.requestMethod = "GET"
+                httpURLConnection.requestMethod = Constants.GET
                 val reader = BufferedReader(InputStreamReader(httpURLConnection.inputStream))
                 var line: String?
                 val response = StringBuilder()
@@ -94,7 +94,7 @@ class ProfileListPresenter(private val profileView: ProfileListContract.View)
     override fun getUserDetailData(loginId: String) {
         var userDetailTask: UserDetailTask? = null
         try {
-            userDetailTask = UserDetailTask(URL_STRING, loginId)
+            userDetailTask = UserDetailTask(Constants.URL_STRING, loginId)
         } catch (e: MalformedURLException) {
             e.printStackTrace()
         }
@@ -105,11 +105,7 @@ class ProfileListPresenter(private val profileView: ProfileListContract.View)
     inner class UserDetailTask @Throws(MalformedURLException::class)
     constructor(url: String, private val loginId: String) : AsyncTask<Void, Void, String>() {
 
-        private val url: URL
-
-        init {
-            this.url = URL("$url/$loginId")
-        }
+        private val url: URL = URL("$url/$loginId")
 
         override fun doInBackground(vararg prams: Void): String? {
             var httpURLConnection: HttpURLConnection? = null
@@ -117,7 +113,7 @@ class ProfileListPresenter(private val profileView: ProfileListContract.View)
             try {
                 httpURLConnection = url.openConnection() as HttpURLConnection
 
-                httpURLConnection.requestMethod = "GET"
+                httpURLConnection.requestMethod = Constants.GET
                 val reader = BufferedReader(InputStreamReader(httpURLConnection.inputStream))
                 var line: String?
                 val response = StringBuilder()
@@ -150,6 +146,6 @@ class ProfileListPresenter(private val profileView: ProfileListContract.View)
     }
 
     private fun getSettingListCount(): String {
-        return PreferenceManager.getDefaultSharedPreferences(context).getString(UserListActivity.KEY_PREF_NUMBER, "30")
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.KEY_PREF_NUMBER, Constants.PROFILE_DEFAULT_VALUE)
     }
 }

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Do\'s List</string>
+    <string name="confirm">확인</string>
+
     <string name="login_main_title">Enter your\nemail, password\nto log in.</string>
     <string name="login_main_hint_email">Email</string>
     <string name="login_main_hint_password">Password</string>
@@ -9,4 +11,7 @@
 
     <string name="setting_title">설정</string>
     <string name="setting_sub_title">보여줄 사용자 수 설정</string>
+
+    <string name="show_network_error_message_title">안내</string>
+    <string name="show_network_error_message_contents">네트워크 연결이 끊겼습니다.</string>
 </resources>

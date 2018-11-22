@@ -1,7 +1,7 @@
 package com.example.hjdo.doslist.profile
 
-import com.example.hjdo.doslist.BasePresenter
-import com.example.hjdo.doslist.BaseView
+import com.example.hjdo.doslist.base.BasePresenter
+import com.example.hjdo.doslist.base.BaseView
 import com.example.hjdo.doslist.data.UserItem
 import com.example.hjdo.doslist.data.UserItemDetail
 

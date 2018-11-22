@@ -14,6 +14,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import com.example.hjdo.doslist.Constants
 import com.example.hjdo.doslist.R
 import com.example.hjdo.doslist.data.UserItem
 import com.example.hjdo.doslist.data.UserItemDetail
@@ -82,7 +83,7 @@ class ProfileListActivity : AppCompatActivity(), ProfileListContract.View {
 
     override fun showDetailActivity(userItemDetail: UserItemDetail) {
         val intent = Intent(applicationContext, ProfileListDetailActivity::class.java)
-        intent.putExtra("userItemDetail", userItemDetail)
+        intent.putExtra(Constants.USER_ITEM_DETAIL, userItemDetail)
         startActivity(intent)
     }
 
@@ -141,11 +142,11 @@ class ProfileListActivity : AppCompatActivity(), ProfileListContract.View {
 
     private fun showMessage() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("안내")
-        builder.setMessage("네트워크 연결이 끊겼습니다.")
+        builder.setTitle(getString(R.string.show_network_error_message_title))
+        builder.setMessage(getString(R.string.show_network_error_message_contents))
         builder.setIcon(android.R.drawable.ic_dialog_alert)
 
-        builder.setNeutralButton("확인") { dialog, which -> finish() }
+        builder.setNeutralButton(getString(R.string.confirm)) { dialog, which -> finish() }
         val dialog = builder.create()
         dialog.show()
     }

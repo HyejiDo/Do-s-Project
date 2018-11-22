@@ -113,7 +113,7 @@ public class UserListActivity extends AppCompatActivity {
 
     //TODO setting에서 보여질 아이템수 변경
     private String getSettingListCount() {
-        return PreferenceManager.getDefaultSharedPreferences(this).getString(UserListActivity.KEY_PREF_NUMBER, "30");
+        return PreferenceManager.getDefaultSharedPreferences(this).getString(UserListActivity.KEY_PREF_NUMBER, "200");
     }
 
     private void onLoadUserListTask(){
