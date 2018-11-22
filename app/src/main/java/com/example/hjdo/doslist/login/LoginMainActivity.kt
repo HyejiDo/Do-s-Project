@@ -26,6 +26,7 @@ class LoginMainActivity: AppCompatActivity() {
             checkUser()
         }
 
+
         emailEditText.setText("hjdo@konai.com")
         passwdEditText.setText("1234")
     }
