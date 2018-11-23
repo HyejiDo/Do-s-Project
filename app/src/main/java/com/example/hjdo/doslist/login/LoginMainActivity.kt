@@ -6,14 +6,15 @@ import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
+import com.example.hjdo.doslist.Constants
 import com.example.hjdo.doslist.R
 import com.example.hjdo.doslist.profile.ProfileListActivity
 import kotlinx.android.synthetic.main.activity_login_main.*
 
 class LoginMainActivity: AppCompatActivity() {
 
-    val id: String = "hjdo@konai.com"
-    val pw: String = "1234"
+    val id: String = Constants.LOGIN_ID
+    val pw: String = Constants.LOGIN_PW
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
@@ -27,8 +28,8 @@ class LoginMainActivity: AppCompatActivity() {
         }
 
 
-        emailEditText.setText("hjdo@konai.com")
-        passwdEditText.setText("1234")
+        emailEditText.setText(Constants.LOGIN_ID)
+        passwdEditText.setText(Constants.LOGIN_PW)
     }
 
     private fun checkUser(){

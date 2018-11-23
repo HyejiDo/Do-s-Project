@@ -12,20 +12,32 @@ import com.example.hjdo.doslist.R
 import com.example.hjdo.doslist.data.UserItem
 
 
-class ProfileListViewHolder(val view: View) : RecyclerView.ViewHolder(view){
+class ProfileListViewHolder(val view: View, private val listener: ProfileListAdapter.OnItemClickListener) : RecyclerView.ViewHolder(view){
 
     private val layoutList by lazy { view.findViewById<LinearLayout>(R.id.layoutList) }
     private val tvUserLogin by lazy { view.findViewById<TextView>(R.id.textView_userLogin) }
     private val tvUserType by lazy { view.findViewById<TextView>(R.id.textView_userType) }
     private val tvUserImage by lazy { view.findViewById<ImageView>(R.id.imageView_userImage) }
 
-    fun onBind(data: UserItem, position: Int, listener: ProfileListAdapter.OnItemClickListener){
+    init {
+        view.setOnClickListener {
+            listener.onItemClick(adapterPosition)
+        }
+    }
+
+    fun onBind(data: UserItem, position: Int){
         tvUserLogin.text = data.login
         tvUserType.text = data.type
         Glide.with(view).load(data.avatar_url).apply(bitmapTransform(CircleCrop())).into(tvUserImage)
 
-        view.setOnClickListener {
-            listener.onItemClick(position)
-        }
+        //view.setOnClickListener(this)
+
+//        view.setOnClickListener {
+//            listener.onItemClick(position)
+        //}
     }
+
+//    override fun onClick(v: View?) {
+//        listener.onItemClick(adapterPosition)
+//    }
 }

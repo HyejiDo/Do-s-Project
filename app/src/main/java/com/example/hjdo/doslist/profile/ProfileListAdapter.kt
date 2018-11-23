@@ -2,6 +2,7 @@ package com.example.hjdo.doslist.profile
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.hjdo.doslist.R
@@ -17,12 +18,13 @@ class ProfileListAdapter(private var context: Context, private var githubData: L
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(if(isLinear) R.layout.profile_item_row_layout_list else R.layout.profile_item_row_layout_grid, parent, false)
-        return ProfileListViewHolder(v)
+        return ProfileListViewHolder(v, listener)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+        Log.d("hjdo","bind")
         val view = holder as ProfileListViewHolder
-        githubData?.get(position)?.let { view.onBind(it, position, listener) }
+        githubData?.get(position)?.let { view.onBind(it, position) }
     }
 
     override fun getItemCount(): Int {
